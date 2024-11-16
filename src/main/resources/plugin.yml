@@ -1,0 +1,12 @@
+name: McGames
+version: '1.0-SNAPSHOT'
+main: org.epigame.mcGames.McGames
+api-version: '1.21'
+authors: [ _SushiCannibale_ ]
+commands:
+  pnj:
+    description: "Creates a PNJ that sends players to a subserver upon right-click"
+    usage: "/pnj <server>"
+    aliases: [pnj]
+    permission: mcgames.pnj.interact
+    permission-message: "You do not have permission to use this command"
