@@ -3,6 +3,7 @@ package org.epigame.lobbyplugin;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -20,9 +21,9 @@ import java.util.Random;
  * Boilerplate. Spawns custom PNJ at player location
  */
 public class PNJCommand implements CommandExecutor, TabExecutor {
-    private Villager.Profession getRandomProfession(Random random) {
+    private Villager.Profession getRandomProfession() {
         Villager.Profession[] professions = Villager.Profession.values();
-        return professions[random.nextInt(professions.length)-1];
+        return professions[LobbyPlugin.random_source.nextInt(professions.length)-1];
     }
 
     @Override
@@ -36,11 +37,11 @@ public class PNJCommand implements CommandExecutor, TabExecutor {
         }
 
         String servername = args[0];
-        Villager villager = (Villager) player.getWorld().spawnEntity(player.getLocation().toBlockLocation(), EntityType.VILLAGER);
-
-        villager.setNoPhysics(true);
-        villager.setGravity(false);
-        villager.setProfession(this.getRandomProfession(new Random()));
+        Location loc = player.getLocation().toBlockLocation().add(0.5D, 0.5D, 0.5D);
+        Villager villager = (Villager) player.getWorld().spawnEntity(loc, EntityType.VILLAGER);
+        villager.setAI(false);
+        villager.lookAt(player);
+        villager.setProfession(getRandomProfession());
         villager.customName(Component.text(servername, TextColor.color(1.0F, 1.0F, 1.0F), TextDecoration.BOLD));
 
         /* Saves the server name in the villager data container for it to be persistent through reloads */

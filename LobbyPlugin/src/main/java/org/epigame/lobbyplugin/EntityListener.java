@@ -33,6 +33,8 @@ public class EntityListener implements Listener {
             out.writeUTF("Connect");
             out.writeUTF(server);
             player.sendPluginMessage(LobbyPlugin.getInstance(), "BungeeCord", out.toByteArray());
+
+            e.setCancelled(true); // Prevent showing offers
         }
     }
 }

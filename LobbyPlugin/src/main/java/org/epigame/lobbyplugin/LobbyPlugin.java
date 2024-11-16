@@ -4,9 +4,12 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Random;
+
 public final class LobbyPlugin extends JavaPlugin {
 
     public static NamespacedKey NAMESPACE;
+    public static Random random_source;
 
     public static LobbyPlugin getInstance() {
         return getPlugin(LobbyPlugin.class);
@@ -20,6 +23,7 @@ public final class LobbyPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EntityListener(), this);
 
         NAMESPACE = new NamespacedKey(LobbyPlugin.getInstance(), "mcgames");
+        random_source = new Random();
 
         /* Set command executors */
         PluginCommand cmd = getCommand("pnj");
