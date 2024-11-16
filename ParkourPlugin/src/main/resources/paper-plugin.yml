@@ -1,0 +1,5 @@
+name: ParkourPlugin
+version: '1.0-SNAPSHOT'
+main: org.epigame.parkourPlugin.ParkourPlugin
+api-version: '1.21'
+authors: [_SushiCannibale_]
