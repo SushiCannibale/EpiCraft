@@ -42,7 +42,7 @@ public class PNJCommand implements CommandExecutor, TabExecutor {
         }
 
         String servername = args[0];
-        Villager villager = (Villager) player.getWorld().spawnEntity(player.getLocation(), EntityType.VILLAGER);
+        Villager villager = (Villager) player.getWorld().spawnEntity(player.getLocation().toBlockLocation(), EntityType.VILLAGER);
 
         villager.setNoPhysics(true);
         villager.setGravity(false);
@@ -59,6 +59,7 @@ public class PNJCommand implements CommandExecutor, TabExecutor {
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
         if (args.length == 1) {
+
             return List.of("lobby", "parkour", "thimble", "uhc");
         }
         return List.of();
