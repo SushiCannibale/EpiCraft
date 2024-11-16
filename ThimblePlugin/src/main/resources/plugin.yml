@@ -1,5 +1,5 @@
 name: ThimblePlugin
 version: '1.0-SNAPSHOT'
-main: org.epigame.thimblePlugin.ThimblePlugin
+main: org.epigame.thimbleplugin.ThimblePlugin
 api-version: '1.21'
 authors: [_SushiCannibale_]

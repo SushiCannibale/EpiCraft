@@ -1,5 +1,5 @@
-name: ParkourPlugin
+name: UHCPlugin
 version: '1.0-SNAPSHOT'
-main: org.epigame.parkourPlugin.ParkourPlugin
+main: org.epigame.uhcplugin.UHCPlugin
 api-version: '1.21'
 authors: [_SushiCannibale_]

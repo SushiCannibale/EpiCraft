@@ -1,4 +1,4 @@
-package org.epigame.uHCPlugin;
+package org.epigame.uhcplugin;
 
 import org.bukkit.plugin.java.JavaPlugin;
 

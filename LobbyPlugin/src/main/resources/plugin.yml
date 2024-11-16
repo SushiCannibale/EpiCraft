@@ -1,6 +1,6 @@
-name: McGames
+name: LobbyPlugin
 version: '1.0-SNAPSHOT'
-main: org.epigame.mcGames.McGames
+main: org.epigame.lobbyplugin.LobbyPlugin
 api-version: '1.21'
 authors: [ _SushiCannibale_ ]
 commands:
