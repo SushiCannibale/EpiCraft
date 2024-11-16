@@ -37,7 +37,8 @@ public class PNJCommand implements CommandExecutor, TabExecutor {
         }
 
         String servername = args[0];
-        Location loc = player.getLocation().toBlockLocation().add(0.5D, 0.5D, 0.5D);
+        Location loc = player.getLocation().clone();
+        loc = loc.toBlockLocation().add(0.5D, 0.0D, 0.5D);
         Villager villager = (Villager) player.getWorld().spawnEntity(loc, EntityType.VILLAGER);
         villager.setAI(false);
         villager.lookAt(player);
