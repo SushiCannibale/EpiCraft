@@ -1,11 +1,14 @@
 package org.epigame.thimbleplugin;
 
 import jdk.jfr.Event;
+import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.scheduler.BukkitTask;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class ArenaManager {
     private static ArenaManager instance;
@@ -32,6 +35,10 @@ public class ArenaManager {
     }
 
     public void dispatch(@NotNull PlayerMoveEvent event) {
-        arenas.forEach(arena -> arena.handlePlayerMovement(event));
+        arenas.forEach(arena -> {
+            if (arena.getHasStarted()) {
+                arena.handlePlayerMovement(event);
+            }
+        });
     }
 }

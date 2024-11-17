@@ -5,21 +5,18 @@ import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import com.sk89q.worldguard.protection.regions.RegionContainer;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-import java.awt.geom.Area;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.regex.Pattern;
 
 public class StartCommand implements CommandExecutor {
-
-    public static final Pattern ARENA_PATTERN = Pattern.compile("thimble*");
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
@@ -28,7 +25,6 @@ public class StartCommand implements CommandExecutor {
             return false;
         }
 
-        /* Randomly chooses a WorldGuard's region (defined previously) as  */
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionManager manager = container.get(BukkitAdapter.adapt(player.getWorld()));
         if (manager == null) {
@@ -36,22 +32,20 @@ public class StartCommand implements CommandExecutor {
             return false;
         }
 
-        Map<String, ProtectedRegion> regions = manager.getRegions();
-        List<ProtectedRegion> playable_regions = new ArrayList<>();
-        regions.forEach((name, rg) -> {
-            if (ARENA_PATTERN.matcher(name).matches()) {
-                playable_regions.add(rg);
-            }
-        });
-
-        if (playable_regions.isEmpty()) {
-            sender.sendMessage("No regions matching 'thimble*' defined !");
+        ProtectedRegion pool_region = manager.getRegion("pool");
+        if (pool_region == null) {
+            sender.sendMessage("No pool region defined !");
             return false;
         }
 
-        ProtectedRegion region = playable_regions.get(ThimblePlugin.random_source.nextInt(playable_regions.size()));
+        Location jump = new Location(player.getWorld(), -49.0D, 93.0D, 164.0D);
+//        Location stands = new Location(player.getWorld(), -63.0D, 79.0D, 164.0D);
+        List<Player> online_players = new ArrayList<>(Bukkit.getOnlinePlayers()); // F**k type capture
 
-//        Arena area = new Arena();
+        Arena arena = new Arena(jump, pool_region, online_players);
+        ArenaManager.getInstance().registerArena(arena); // Mainly for event dispatching
+
+        Bukkit.getScheduler().runTaskAsynchronously(ThimblePlugin.getInstance(), arena::start);
 
         return true;
     }
