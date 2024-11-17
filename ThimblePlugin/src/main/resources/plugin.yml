@@ -3,9 +3,10 @@ version: '1.0-SNAPSHOT'
 main: org.epigame.thimbleplugin.ThimblePlugin
 api-version: '1.21'
 authors: [_SushiCannibale_]
+depend: [WorldGuard]
 commands:
   start:
-    description: "Starts the game"
+    description: "Starts a new game"
     usage: "/start"
     permission: thimbleplugin.minigame.start
     permission-message: "You do not have permission to use this command"

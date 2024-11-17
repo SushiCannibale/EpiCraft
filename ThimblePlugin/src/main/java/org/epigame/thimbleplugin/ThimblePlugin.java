@@ -9,7 +9,7 @@ import java.util.Random;
 public final class ThimblePlugin extends JavaPlugin {
 
 //    public static NamespacedKey NAMESPACE;
-//    public static Random random_source;
+    public static Random random_source;
 
     public static ThimblePlugin getInstance() {
         return getPlugin(ThimblePlugin.class);
@@ -18,6 +18,8 @@ public final class ThimblePlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(new EventListener(), this);
+
+        random_source = new Random();
 
         PluginCommand cmd = getCommand("start");
         assert(cmd != null);
