@@ -8,5 +8,5 @@ commands:
     description: "Creates a PNJ that sends players to a subserver upon right-click"
     usage: "/pnj <server>"
     aliases: [pnj]
-    permission: mcgames.pnj.interact
+    permission: lobbyplugin.pnj.interact
     permission-message: "You do not have permission to use this command"

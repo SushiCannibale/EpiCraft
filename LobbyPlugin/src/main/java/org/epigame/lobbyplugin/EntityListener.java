@@ -12,7 +12,6 @@ import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 
 public class EntityListener implements Listener {
-
     @EventHandler
     public static void onEntityInteract(@NotNull PlayerInteractEntityEvent e) {
         if (e.getRightClicked() instanceof Villager villager) {
