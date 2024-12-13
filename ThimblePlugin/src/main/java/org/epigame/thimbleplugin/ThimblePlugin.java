@@ -1,8 +1,10 @@
 package org.epigame.thimbleplugin;
 
+import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.NamespacedKey;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scoreboard.Team;
 
 import java.util.Random;
 
@@ -15,6 +17,11 @@ public final class ThimblePlugin extends JavaPlugin {
         return getPlugin(ThimblePlugin.class);
     }
 
+    @Override
+    public void onLoad() {
+        this.saveDefaultConfig();
+    }
+    
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(new EventListener(), this);
