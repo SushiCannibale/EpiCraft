@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.epigame</groupId>
-    <artifactId>McGames</artifactId>
+    <artifactId>EpiCraft</artifactId>
     <version>1.0-SNAPSHOT</version>
     
 	<packaging>pom</packaging>
-	<name>McGames</name>
+	<name>EpiCraft</name>
 	
 	<modules>
 		<module>LobbyPlugin</module>
