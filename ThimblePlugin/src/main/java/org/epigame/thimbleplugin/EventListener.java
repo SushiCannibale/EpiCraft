@@ -1,5 +1,7 @@
 package org.epigame.thimbleplugin;
 
+import net.kyori.adventure.audience.Audience;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockType;
@@ -12,7 +14,7 @@ import org.jspecify.annotations.NonNull;
 public class EventListener implements Listener {
     @EventHandler
     public static void onPlayerConnects(@NonNull PlayerJoinEvent e) {
-        
+
     }
 
     @EventHandler

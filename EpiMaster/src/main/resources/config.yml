@@ -1,0 +1,23 @@
+# The api key for communicating with the API
+api-key: XXXX
+
+# Liste des équipes rejoignable par les joueurs au Lobby
+teams:
+  red:
+    color: '#ff5555'
+    limit: 2
+  green:
+    color: '#55ff55'
+    limit: 2
+  blue:
+    color: '#5555ff'
+    limit: 2
+
+# Liste des mini-jeux proposés
+minigames:
+  uhc:
+    server: 'uhc'
+  thimble:
+    server: 'thimble'
+  parkour:
+    server: 'parkour'

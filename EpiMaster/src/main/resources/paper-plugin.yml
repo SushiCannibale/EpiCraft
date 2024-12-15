@@ -1,0 +1,5 @@
+name: TeamLib
+version: '1.0-SNAPSHOT'
+main: org.epigame.epimaster.EpiMaster
+api-version: '1.21'
+authors: [_SushiCannibale_]

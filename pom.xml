@@ -12,6 +12,7 @@
 	<name>EpiCraft</name>
 	
 	<modules>
+		<module>EpiMaster</module>
 		<module>LobbyPlugin</module>
 		<module>UHCPlugin</module>
 		<module>ParkourPlugin</module>
